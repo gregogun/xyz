@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "types:check": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "@reach/skip-nav": "^0.16.0",
@@ -30,6 +30,16 @@
     "lint-staged": "^12.0.2",
     "prettier": "^2.4.1",
     "typescript": "4.4.4"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged",
+      "pre-push": "yarn types:check"
+    }
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
