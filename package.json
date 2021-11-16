@@ -5,10 +5,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@reach/skip-nav": "^0.16.0",
+    "@stitches/react": "^1.2.5",
+    "date-fns": "^2.25.0",
+    "esbuild": "^0.13.14",
+    "focus-trap-react": "^8.8.2",
+    "gray-matter": "^4.0.3",
+    "mdx-bundler": "^7.0.0",
     "next": "12.0.4",
+    "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -17,6 +26,15 @@
     "@types/react": "17.0.35",
     "eslint": "7",
     "eslint-config-next": "12.0.4",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
+    "prettier": "^2.4.1",
     "typescript": "4.4.4"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint --quiet --fix --cache"
+    ]
   }
 }
