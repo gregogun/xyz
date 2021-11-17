@@ -1,23 +1,40 @@
+import { Container } from '@/components/Container';
 import { Heading } from '@/components/Heading';
+import { Box, Flex } from '@/components/Layout';
+import Socials from '@/components/Socials';
 import { text } from '@/components/Text';
 import type { NextPage } from 'next';
 import { styled } from 'stitches.config';
 
-const Text = styled('p', {
-  fontFamily: '$body',
-  fontSize: '$md',
-});
-
 const Home: NextPage = () => {
   return (
-    <div>
-      <Heading>Greg Ogun</Heading>
-      <h3 className={text()}>
-        developer, designer, content creator, and occasional writer, amongst
-        other things.
-      </h3>
-      {/* <Text>develop, designer and content creator.</Text> */}
-    </div>
+    <Container>
+      <Box
+        css={{
+          boxShadow:
+            'inset 0 0 0 1px var(--colors-elementBorder), 0 0 0 1px var(--colors-elementBorder)',
+          borderRadius: '$md',
+          py: '$10',
+          px: '$16',
+          maxWidth: '775px',
+          margin: 'auto',
+        }}
+      >
+        <Flex css={{ justifyContent: 'space-between' }}>
+          <Box
+            css={{ boxSize: '$44', bg: '$elementBg', borderRadius: '$full' }}
+          />
+          <Box>
+            <Heading css={{ mb: '$4' }}>Greg Ogun</Heading>
+            <h2 className={text({ css: { maxWidth: '396px', mb: '$10' } })}>
+              developer, designer, content creator, and occasional writer,
+              amongst other things.
+            </h2>
+            <Socials />
+          </Box>
+        </Flex>
+      </Box>
+    </Container>
   );
 };
 
