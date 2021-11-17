@@ -9,6 +9,9 @@
     "types:check": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.7",
+    "@radix-ui/react-icons": "^1.0.3",
+    "@radix-ui/react-visually-hidden": "^0.1.1",
     "@reach/skip-nav": "^0.16.0",
     "@stitches/react": "^1.2.5",
     "date-fns": "^2.25.0",
