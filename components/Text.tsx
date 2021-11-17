@@ -3,6 +3,7 @@ import { css, styled } from 'stitches.config';
 export const text = css({
   fontFamily: '$body',
   fontWeight: 'normal',
+  color: '$hiContrast',
 
   variants: {
     size: {

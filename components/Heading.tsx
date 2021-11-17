@@ -2,6 +2,7 @@ import { CSS, css, styled } from 'stitches.config';
 
 export const heading = css({
   fontFamily: '$heading',
+  color: '$hiContrast',
 
   variants: {
     //indetifier
