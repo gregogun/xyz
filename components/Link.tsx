@@ -59,10 +59,16 @@ interface LinkProps {
   variant?: 'styled' | 'button';
 }
 
-export const Link = ({ href, children, variant, css, ...props }: LinkProps) => {
+export const Link = ({ href, children, variant, css }: LinkProps) => {
   if (href.includes('https')) {
     return (
-      <LinkBase variant={variant} css={{ ...css }} href={href}>
+      <LinkBase
+        href={href}
+        rel="noreferrer noopener"
+        target="_blank"
+        variant={variant}
+        css={{ ...css }}
+      >
         {children}
       </LinkBase>
     );

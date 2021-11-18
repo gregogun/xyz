@@ -51,7 +51,7 @@ const NavbarWrapper = styled('nav', {
 
 const NavMenu = () => {
   return (
-    <List css={{ display: 'flex', gap: '$2' }}>
+    <List css={{ display: 'flex', gap: '$3' }}>
       <NavMenuItem name="/" href="/">
         home
       </NavMenuItem>
@@ -80,7 +80,17 @@ const NavMenuItem = ({ children, href, name, ...props }: NavMenuItemProps) => {
     <ListItem>
       <Link
         variant="styled"
-        css={{ color: isActive ? '$hiContrast' : '$muted' }}
+        css={{
+          color: isActive ? '$hiContrast' : '$muted',
+
+          '&::before, &::after': {
+            height: isActive ? '0' : '1px',
+          },
+
+          '&:hover': {
+            color: isActive ? '$hiContrast' : '$loContrast',
+          },
+        }}
         href={href}
       >
         {children}
