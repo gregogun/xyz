@@ -40,6 +40,8 @@ const spaceTokens = {
 
 const darkModeConfig = {
   colors: {
+    ...violetDark,
+
     AppBg: mauveDark.mauve1,
     loContrast: mauveDark.mauve11,
     hiContrast: mauveDark.mauve12,
@@ -61,6 +63,8 @@ export const {
 } = createStitches({
   theme: {
     colors: {
+      ...violet,
+
       AppBg: mauve.mauve1,
       loContrast: mauve.mauve11,
       hiContrast: mauve.mauve12,
@@ -74,6 +78,18 @@ export const {
     },
     sizes: {
       ...spaceTokens,
+      max: 'max-content',
+      min: 'min-content',
+      full: '100%',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '50rem',
+      '5xl': '56rem',
     },
     fontSizes: {
       xs: '0.75rem',
