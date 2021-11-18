@@ -8,24 +8,20 @@ export const text = css({
   variants: {
     size: {
       xs: {
-        $$size: '$fontSizes$xs',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$xs',
+        lineHeight: '$xs',
       },
       sm: {
-        $$size: '$fontSizes$sm',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$sm',
+        lineHeight: '$sm',
       },
       md: {
-        $$size: '$fontSizes$md',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$md',
+        lineHeight: '$md',
       },
       lg: {
-        $$size: '$fontSizes$lg',
-        fontSize: '$size',
-        lineHeight: '$$size',
+        fontSize: '$lg',
+        lineHeight: '$lg',
       },
     },
   },
