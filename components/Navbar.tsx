@@ -6,8 +6,9 @@ import { ReactNode, SetStateAction, useEffect, useState } from 'react';
 import { css, styled } from 'stitches.config';
 import { IconButton } from './IconButton';
 import { Logo } from './icons';
-import { List, ListItem } from './Layout';
+import { list, List, ListItem } from './Layout';
 import { Link } from './Link';
+import { motion } from 'framer-motion';
 
 // toggles light/dark mode
 const ThemeToggle = ({ children, ...props }: any) => {
@@ -43,7 +44,7 @@ const ThemeToggleButton = ({ ...props }) => {
   );
 };
 
-const NavbarWrapper = styled('nav', {
+const nav = css({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -51,30 +52,26 @@ const NavbarWrapper = styled('nav', {
 
 const NavMenu = () => {
   return (
-    <List css={{ display: 'flex', gap: '$3' }}>
-      <NavMenuItem name="/" href="/">
-        home
-      </NavMenuItem>
-      <NavMenuItem name="projects" href="/projects">
-        projects
-      </NavMenuItem>
-      <NavMenuItem name="digitalgarden" href="/digitalgarden">
-        digital garden
-      </NavMenuItem>
-    </List>
+    <motion.ul
+      variants={item}
+      className={list({ css: { display: 'flex', gap: '$3' } })}
+    >
+      <NavMenuItem href="/">home</NavMenuItem>
+      <NavMenuItem href="/projects">projects</NavMenuItem>
+      <NavMenuItem href="/digitalgarden">digital garden</NavMenuItem>
+    </motion.ul>
   );
 };
 
 interface NavMenuItemProps {
-  children: string | React.ReactNode;
+  children: string;
   href: string;
-  name: string;
 }
 
-const NavMenuItem = ({ children, href, name, ...props }: NavMenuItemProps) => {
+const NavMenuItem = ({ children, href }: NavMenuItemProps) => {
   const router = useRouter();
 
-  const isActive = name === router.pathname;
+  const isActive = router.pathname === href;
 
   return (
     <ListItem>
@@ -99,14 +96,41 @@ const NavMenuItem = ({ children, href, name, ...props }: NavMenuItemProps) => {
   );
 };
 
+const navAnim = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+      duration: 0.6,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
+
 export const Navbar = () => {
   return (
-    <NavbarWrapper css={{ mb: '$16' }}>
-      <Link href="/">
-        <Logo />
-      </Link>
+    <motion.nav
+      initial="hidden"
+      animate="show"
+      variants={navAnim}
+      className={nav({ css: { mb: '$16' } })}
+    >
+      <motion.div variants={item}>
+        <Link href="/">
+          <Logo />
+        </Link>
+      </motion.div>
       <NavMenu />
-      <ThemeToggleButton />
-    </NavbarWrapper>
+      <motion.div variants={item}>
+        <ThemeToggleButton />
+      </motion.div>
+    </motion.nav>
   );
 };
