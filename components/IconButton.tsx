@@ -8,7 +8,6 @@ const iconButton = css({
   border: 'none',
   padding: 0,
   margin: 0,
-  outline: 'none',
   textDecoration: 'none',
   alignItems: 'center',
   appearance: 'none',
