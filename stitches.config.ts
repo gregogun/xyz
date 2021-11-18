@@ -46,6 +46,7 @@ const darkModeConfig = {
     muted: mauveDark.mauve9,
     elementBg: mauveDark.mauve3,
     elementBorder: mauveDark.mauve7,
+    link: violetDark.violet10,
   },
 };
 
@@ -66,6 +67,7 @@ export const {
       muted: mauve.mauve9,
       elementBg: mauve.mauve3,
       elementBorder: mauve.mauve7,
+      link: violet.violet10,
     },
     space: {
       ...spaceTokens,

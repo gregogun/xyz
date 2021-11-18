@@ -1,45 +1,54 @@
 import NextLink from 'next/link';
-import { CSS, css, styled } from 'stitches.config';
+import { CSS, styled } from 'stitches.config';
+import { mauve, violet } from '@radix-ui/colors';
 
 const LinkBase = styled('a', {
   margin: 0,
   fontFamily: '$body',
+  WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+  color: 'inherit',
+  '&:focus': {
+    boxShadow: '0 0 0 1px var(--colors-link)',
+  },
 
   variants: {
-    type: {
-      line: {
-        WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-        color: 'inherit',
-        boxShadow: '0px 1px 0px 0px $colors$tertiary',
-        transition: 'all 200ms linear 0ms',
+    variant: {
+      styled: {
+        position: 'relative',
         textDecoration: 'none',
 
-        '&:hover': {
-          color: '$loContrast',
-          transition: 'all 200ms linear 0ms',
+        '&::before, &::after': {
+          position: 'absolute',
+          background: 'currentColor',
+          width: '100%',
+          height: '1px',
+          top: '100%',
+          left: '0',
+          pointerEvents: 'none',
         },
-      },
-      noLine: {
-        WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-        color: 'inherit',
-        transition: 'all 200ms linear 0ms',
-        textDecoration: 'none',
+
+        '&::before': {
+          content: '',
+          transformOrigin: '100% 50%',
+          transform: 'scale3d(0, 1, 1)',
+          transition: 'transform 0.3s',
+        },
 
         '&:hover': {
-          color: '$loContrast',
-          transition: 'all 200ms linear 0ms',
+          '&::before': {
+            transformOrigin: '0% 50%',
+            transform: 'scale3d(1, 1, 1)',
+          },
         },
       },
-      ghost: {
-        WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-        color: 'inherit',
-        transition: 'all 200ms linear 0ms',
+      button: {
+        bg: '$link',
         textDecoration: 'none',
       },
     },
   },
   defaultVariants: {
-    type: 'line',
+    variant: 'default',
   },
 });
 
@@ -47,12 +56,13 @@ interface LinkProps {
   href: string;
   children: React.ReactNode | string;
   css?: CSS;
+  variant?: 'styled' | 'button';
 }
 
-export const Link = ({ href, children, css, ...props }: LinkProps) => {
+export const Link = ({ href, children, variant, css, ...props }: LinkProps) => {
   if (href.includes('https')) {
     return (
-      <LinkBase css={{ ...css }} href={href}>
+      <LinkBase variant={variant} css={{ ...css }} href={href}>
         {children}
       </LinkBase>
     );
@@ -60,7 +70,9 @@ export const Link = ({ href, children, css, ...props }: LinkProps) => {
 
   return (
     <NextLink href={href} passHref>
-      <LinkBase css={{ ...css }}>{children}</LinkBase>
+      <LinkBase variant={variant} css={{ ...css }}>
+        {children}
+      </LinkBase>
     </NextLink>
   );
 };

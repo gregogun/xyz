@@ -78,7 +78,11 @@ const NavMenuItem = ({ children, href, name, ...props }: NavMenuItemProps) => {
 
   return (
     <ListItem>
-      <Link css={{ color: isActive ? '$hiContrast' : '$muted' }} href={href}>
+      <Link
+        variant="styled"
+        css={{ color: isActive ? '$hiContrast' : '$muted' }}
+        href={href}
+      >
         {children}
       </Link>
     </ListItem>
