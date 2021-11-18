@@ -7,15 +7,19 @@ const LinkBase = styled('a', {
   fontFamily: '$body',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   color: 'inherit',
-  '&:focus': {
-    boxShadow: '0 0 0 1px var(--colors-link)',
-  },
+  textDecoration: 'none',
 
   variants: {
     variant: {
+      default: {
+        boxShadow: '0 1px var(--colors-loContrast)',
+
+        '&:hover': {
+          boxShadow: '0 3px var(--colors-link)',
+        },
+      },
       styled: {
         position: 'relative',
-        textDecoration: 'none',
 
         '&::before, &::after': {
           position: 'absolute',

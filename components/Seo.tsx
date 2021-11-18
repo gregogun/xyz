@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-interface Meta {
+export interface Meta {
   title?: string;
   description?: string;
   image?: string;

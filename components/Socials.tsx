@@ -1,6 +1,6 @@
 import { css } from 'stitches.config';
 import socials from 'data/socials';
-import { VisuallyHidden } from './srOnly';
+import { VisuallyHidden } from './VisuallyHidden';
 import { List, ListItem } from './Layout';
 
 const icon = css({

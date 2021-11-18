@@ -1,28 +1,48 @@
-import { styled } from 'stitches.config';
+import { css, styled } from 'stitches.config';
 
-export const Box = styled('div');
+export const box = css({});
 
-export const Flex = styled('div', {
+export const Box = styled('div', { ...box });
+
+export const flex = css({
   display: 'flex',
 });
 
-export const Center = styled('div', {
+export const Flex = styled('div', {
+  ...flex,
+});
+
+export const center = css({
   display: 'grid',
   placeItems: 'center',
 });
 
-export const Grid = styled('div', {
+export const Center = styled('div', {
+  ...center,
+});
+
+export const grid = css({
   display: 'grid',
 });
 
-export const List = styled('ul', {
+export const Grid = styled('div', {
+  ...grid,
+});
+
+export const list = css({
   listStyleType: 'none',
   padding: 0,
   margin: 0,
 });
 
-export const ListItem = styled('li', {
+export const List = styled('ul', {
+  ...list,
+});
+
+export const listItem = css({
   listStyle: 'none',
-  // padding: 0,
-  // margin: 0,
+});
+
+export const ListItem = styled('li', {
+  ...listItem,
 });
