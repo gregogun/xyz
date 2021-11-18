@@ -1,5 +1,6 @@
 import { Container } from '@/components/Container';
 import { Heading } from '@/components/Heading';
+import { Image } from '@/components/Image';
 import { Box, Flex } from '@/components/Layout';
 import Socials from '@/components/Socials';
 import { text } from '@/components/Text';
@@ -21,7 +22,13 @@ const Home: NextPage = () => {
         }}
       >
         <Flex css={{ justifyContent: 'space-between' }}>
-          <Box
+          <Image
+            priority
+            width={180}
+            height={180}
+            radius="$full"
+            src="/static/images/me.png"
+            alt="Greg Ogun"
             css={{ boxSize: '$44', bg: '$elementBg', borderRadius: '$full' }}
           />
           <Box>
