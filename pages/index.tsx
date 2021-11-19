@@ -9,42 +9,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { NextPage } from 'next';
 import { css, styled } from 'stitches.config';
 
-const aboutContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delay: 0.3,
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-      duration: 0.5,
-    },
-  },
-};
-
-const containerDirectChild = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delay: 0.3,
-      staggerChildren: 0.3,
-      duration: 1,
-    },
-  },
-};
-
-const containerChild = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
-
 const ProfileImage = () => {
   return (
     <motion.div
       className={center({
         css: {
-          p: '$3',
+          '@bp1': {
+            display: 'inline-block',
+            margin: '0 auto',
+          },
+          '@bp2': {
+            display: 'block',
+            margin: 'auto',
+          },
+          p: '$2',
           boxShadow: '0 0 0 1px $colors$violet3',
           borderRadius: '$full',
         },
@@ -54,7 +32,13 @@ const ProfileImage = () => {
       <Box
         className={center({
           css: {
-            p: '$3',
+            '@bp1': {
+              display: 'inline-block',
+            },
+            '@bp2': {
+              display: 'block',
+            },
+            p: '$2',
             boxShadow: '0 0 0 1px $colors$violet6',
             borderRadius: '$full',
           },
@@ -63,6 +47,12 @@ const ProfileImage = () => {
         <Box
           className={center({
             css: {
+              '@bp1': {
+                display: 'inline-block',
+              },
+              '@bp2': {
+                display: 'block',
+              },
               boxShadow: '0 0 0 1px $colors$violet7',
               borderRadius: '$full',
             },
@@ -73,7 +63,15 @@ const ProfileImage = () => {
             src="/static/images/me.png"
             alt="Greg Ogun"
             css={{
-              '@bp4': {
+              '@bp1': {
+                width: 96,
+                height: 96,
+              },
+              '@bp2': {
+                width: 144,
+                height: 144,
+              },
+              '@bp3': {
                 width: 200,
                 height: 200,
               },
@@ -86,62 +84,130 @@ const ProfileImage = () => {
   );
 };
 
-const Home: NextPage = () => {
+const aboutContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+      duration: 0.5,
+    },
+  },
+};
+
+const containerDirectChild = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      duration: 1,
+    },
+  },
+};
+
+const containerChild = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
+
+const InfoCard = () => {
   return (
-    <Container>
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={aboutContainer}
-        exit={{ opacity: 0, transition: { delay: 1 } }}
-        className={box({
-          css: {
-            boxShadow:
-              'inset 0 0 0 1px var(--colors-elementBorder), 0 0 0 1px var(--colors-elementBorder)',
-            borderRadius: '$md',
+    <motion.div
+      key="infoCard"
+      initial="hidden"
+      animate="show"
+      variants={aboutContainer}
+      exit="exit"
+      transition={{ type: 'linear' }}
+      className={box({
+        css: {
+          '@bp1': {
+            px: '$6',
+          },
+          '@bp2': {
             py: '$10',
             px: '$16',
+            maxWidth: '$2xl',
+            boxShadow: '0 0 0 1px var(--colors-elementBorder)',
+          },
+          '@bp3': {
             maxWidth: '$5xl',
-            margin: 'auto',
+          },
+          borderRadius: '$md',
+
+          margin: 'auto',
+        },
+      })}
+    >
+      <motion.div
+        variants={containerDirectChild}
+        className={flex({
+          css: {
+            '@bp1': {
+              flexDirection: 'column-reverse',
+              gap: '$8',
+            },
+            '@bp2': {
+              flexDirection: 'row',
+            },
+            justifyContent: 'space-between',
           },
         })}
       >
         <motion.div
-          variants={containerDirectChild}
           className={flex({
             css: {
-              justifyContent: 'space-between',
+              flexDirection: 'column',
+              justifyContent: 'center',
             },
           })}
+          variants={containerChild}
         >
-          <motion.div
-            className={flex({
+          <Flex
+            css={{
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: '95%',
+            }}
+          >
+            <Heading css={{ mb: '$4' }}>Greg Ogun</Heading>
+            <Text
+              css={{
+                color: '$loContrast',
+                bg: '$elementBg',
+                px: '$1',
+                borderRadius: '$sm',
+              }}
+            >
+              he/him
+            </Text>
+          </Flex>
+          <h2
+            className={text({
               css: {
-                flexDirection: 'column',
-                justifyContent: 'center',
+                '@bp2': {
+                  maxWidth: '$md',
+                },
+                mb: '$12',
               },
             })}
-            variants={containerChild}
           >
-            <Flex
-              css={{ alignItems: 'center', justifyContent: 'space-between' }}
-            >
-              <Heading css={{ mb: '$4' }}>Greg Ogun</Heading>
-              <Text size="lg" css={{ color: '$loContrast' }}>
-                he/him
-              </Text>
-            </Flex>
-            <h2 className={text({ css: { maxWidth: '$md', mb: '$10' } })}>
-              developer, designer, content creator, and occasional writer,
-              amongst other things.
-            </h2>
-            <Socials />
-          </motion.div>
-          <ProfileImage />
+            developer, designer, content creator, and occasional writer, amongst
+            other things.
+          </h2>
+          <Socials />
         </motion.div>
+        <ProfileImage />
       </motion.div>
-    </Container>
+    </motion.div>
   );
+};
+
+const Home: NextPage = () => {
+  return <InfoCard />;
 };
 
 export default Home;

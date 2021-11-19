@@ -54,11 +54,11 @@ const NavMenu = () => {
   return (
     <motion.ul
       variants={item}
-      className={list({ css: { display: 'flex', gap: '$3' } })}
+      className={list({ css: { display: 'flex', gap: '$2' } })}
     >
       <NavMenuItem href="/">home</NavMenuItem>
       <NavMenuItem href="/projects">projects</NavMenuItem>
-      <NavMenuItem href="/digitalgarden">digital garden</NavMenuItem>
+      <NavMenuItem href="/garden">digital garden</NavMenuItem>
     </motion.ul>
   );
 };
@@ -76,9 +76,17 @@ const NavMenuItem = ({ children, href }: NavMenuItemProps) => {
   return (
     <ListItem>
       <Link
-        variant="styled"
+        variant="ghost"
         css={{
+          '@bp1': {
+            display: 'none',
+          },
+          '@bp2': {
+            display: 'block',
+          },
+          padding: '3px',
           color: isActive ? '$hiContrast' : '$muted',
+          transitionDuration: '500ms',
 
           '&::before, &::after': {
             height: isActive ? '0' : '1px',
@@ -120,7 +128,16 @@ export const Navbar = () => {
       initial="hidden"
       animate="show"
       variants={navAnim}
-      className={nav({ css: { mb: '$16' } })}
+      className={nav({
+        css: {
+          '@bp1': {
+            mb: '$4',
+          },
+          '@bp2': {
+            mb: '$16',
+          },
+        },
+      })}
     >
       <motion.div variants={item}>
         <Link href="/">

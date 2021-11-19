@@ -13,18 +13,6 @@ interface ContainerProps extends Meta {
 
 const skipNav = css({
   '&[data-reach-skip-link]': {
-    // '@bp1': {
-    //   top: '$2',
-    //   left: '$8',
-    // },
-    // '@bp3': {
-    //   top: '$4',
-    //   left: '$6',
-    // },
-    // '@bp4': {
-    //   top: '$6',
-    //   left: '$12',
-    // },
     position: 'absolute',
     top: '$10 ',
     left: '$64',
@@ -49,7 +37,17 @@ const Footer = styled('footer');
 
 export const Container = ({ children }: ContainerProps) => {
   return (
-    <Box css={{ pt: '$32', backgroundColor: '$AppBg' }}>
+    <Box
+      css={{
+        '@bp1': {
+          p: '$3',
+        },
+        '@bp4': {
+          pt: '$32',
+        },
+        backgroundColor: '$AppBg',
+      }}
+    >
       <Seo />
       <SkipNavLink className={skipNav()} />
       <Grid
