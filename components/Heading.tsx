@@ -9,24 +9,26 @@ export const heading = css({
     variant: {
       //choices[]
       h1: {
-        $$size: '$fontSizes$5xl',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        '@bp1': {
+          fontSize: '$4xl',
+          lineHeight: '$4xl',
+        },
+        '@bp3': {
+          fontSize: '$5xl',
+          lineHeight: '$5xl',
+        },
       },
       h2: {
-        $$size: '$fontSizes$4xl',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$4xl',
+        lineHeight: '$4xl',
       },
       h3: {
-        $$size: '$fontSizes$2xl',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$2xl',
+        lineHeight: '$2xl',
       },
       h4: {
-        $$size: '$fontSizes$xl',
-        fontSize: '$$size',
-        lineHeight: '$$size',
+        fontSize: '$xl',
+        lineHeight: '$xl',
       },
     },
   },

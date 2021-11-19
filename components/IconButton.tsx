@@ -17,12 +17,20 @@ const iconButton = css({
   WebkitTapHighlightColor: 'rgba(0,0,0,0)',
   borderRadius: '$sm',
 
-  boxShadow: `inset 0 0 0 1px var(--colors-elementBorder), 0 0 0 1px var(--colors-elementBorder)`,
+  boxShadow: `0 0 0 1px var(--colors-elementBorder)`,
   backgroundColor: '$elementBg',
+
+  '&:hover': {
+    backgroundColor: '$mauve4',
+    boxShadow: `0 0 0 1px var(--colors-mauve8)`,
+  },
 
   variants: {
     size: {
       md: {
+        p: '$3',
+      },
+      lg: {
         p: '$3',
       },
     },

@@ -5,6 +5,7 @@ import { mauve, violet } from '@radix-ui/colors';
 const LinkBase = styled('a', {
   margin: 0,
   fontFamily: '$body',
+  fontWeight: '$bold',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   color: 'inherit',
   textDecoration: 'none',
@@ -12,36 +13,27 @@ const LinkBase = styled('a', {
   variants: {
     variant: {
       default: {
-        boxShadow: '0 1px var(--colors-loContrast)',
-
-        '&:hover': {
-          boxShadow: '0 3px var(--colors-link)',
-        },
-      },
-      styled: {
+        display: 'inlineBlock',
         position: 'relative',
 
-        '&::before, &::after': {
-          position: 'absolute',
-          background: 'currentColor',
-          width: '100%',
-          height: '1px',
-          top: '100%',
-          left: '0',
-          pointerEvents: 'none',
-        },
-
-        '&::before': {
+        '&::after': {
           content: '',
-          transformOrigin: '100% 50%',
-          transform: 'scale3d(0, 1, 1)',
-          transition: 'transform 0.3s',
+          position: 'absolute',
+          width: '100%',
+          height: '2px',
+          bottom: -3,
+          left: 0,
+          background: '$violet9',
+          transform: 'scaleX(1)',
+          transformOrigin: 'bottom left',
+          transition: 'transform 0.4s cubic-bezier(0.86, 0, 0.07, 1)',
         },
 
         '&:hover': {
-          '&::before': {
-            transformOrigin: '0% 50%',
-            transform: 'scale3d(1, 1, 1)',
+          color: '$violet11',
+          '&::after': {
+            transform: 'scaleX(0)',
+            transformOrigin: 'bottom right',
           },
         },
       },
@@ -49,6 +41,7 @@ const LinkBase = styled('a', {
         bg: '$link',
         textDecoration: 'none',
       },
+      ghost: {},
     },
   },
   defaultVariants: {
@@ -60,7 +53,7 @@ interface LinkProps {
   href: string;
   children: React.ReactNode | string;
   css?: CSS;
-  variant?: 'styled' | 'button';
+  variant?: 'default' | 'button' | 'ghost';
 }
 
 export const Link = ({ href, children, variant, css }: LinkProps) => {
