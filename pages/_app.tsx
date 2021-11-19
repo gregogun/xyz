@@ -3,6 +3,8 @@ import { darkTheme } from '../stitches.config';
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 import React, { FC } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { Container } from '@/components/Container';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       defaultTheme="system"
       value={{ light: 'light-theme', dark: darkTheme.toString() }}
     >
-      <Component {...pageProps} />
+      <Container>
+        {/* <AnimatePresence exitBeforeEnter> */}
+        <Component {...pageProps} />
+        {/* </AnimatePresence> */}
+      </Container>
     </ThemeProvider>
   );
 }
