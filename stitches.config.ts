@@ -3,6 +3,7 @@ import type * as Stitches from '@stitches/react';
 import { mauve, mauveDark, violet, violetDark } from '@radix-ui/colors';
 
 const spaceTokens = {
+  0: '0px',
   px: '1px',
   // 0.5: "0.125rem",
   1: '0.25rem',
@@ -40,6 +41,7 @@ const spaceTokens = {
 
 const darkModeConfig = {
   colors: {
+    ...mauveDark,
     ...violetDark,
 
     AppBg: mauveDark.mauve1,
@@ -63,6 +65,7 @@ export const {
 } = createStitches({
   theme: {
     colors: {
+      ...mauve,
       ...violet,
 
       AppBg: mauve.mauve1,
@@ -110,7 +113,10 @@ export const {
       heading: 'Inter, sans-serif',
       body: 'Manrope, sans-serif',
     },
-    fontWeights: {},
+    fontWeights: {
+      regular: 400,
+      bold: 700,
+    },
     lineHeights: {
       xs: '1rem',
       sm: '1.25rem',
@@ -147,8 +153,9 @@ export const {
     dark: '(prefers-color-scheme: dark)',
     bp1: '(min-width: 280px)',
     bp2: '(min-width: 768px)',
-    bp3: '(min-width: 1024px)',
-    bp4: '(min-width: 1440px)',
+    bp3: '(min-width: 992px)',
+    bp4: '(min-width: 1024px)',
+    bp5: '(min-width: 1440px)',
   },
   utils: {
     p: (value: ScaleValue<'space'>) => ({
