@@ -27,14 +27,14 @@ export default class Document extends NextDocument {
           />
           <link
             rel="preload"
-            href="/fonts/manrope-medium.woff"
+            href="/fonts/manrope-var.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/manrope-medium.woff2"
+            href="/fonts/manrope-var.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
@@ -51,9 +51,8 @@ export default class Document extends NextDocument {
 
 @font-face {
   font-family: 'Manrope';
-  font-weight: 500;
   font-display: swap;
-  src: url(/fonts/manrope-medium.woff2) format('woff2'), url(/fonts/manrope-medium.woff) format('woff');
+  src: url(/fonts/manrope-var.woff2) format('woff2'), url(/fonts/manrope-var.woff) format('woff');
 }
 
 `,

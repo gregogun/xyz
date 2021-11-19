@@ -12,13 +12,35 @@
       ]
     },
     {
-      "source": "/fonts/manrope-medium.woff2",
+      "source": "/fonts/manrope-var.woff2",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
+      "destination": "/"
+    },
+    {
+      "source": "/blog",
+      "destination": "/garden"
+    },
+    {
+      "source": "/resume",
+      "destination": "https://read.cv/gregogun"
+    },
+    {
+      "source": "/cv",
+      "destination": "https://read.cv/gregogun"
     }
   ]
 }
