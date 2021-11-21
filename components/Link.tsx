@@ -56,10 +56,11 @@ interface LinkProps {
   variant?: 'default' | 'button' | 'ghost';
 }
 
-export const Link = ({ href, children, variant, css }: LinkProps) => {
+export const Link = ({ href, children, variant, css, ...props }: LinkProps) => {
   if (href.includes('https')) {
     return (
       <LinkBase
+        {...props}
         href={href}
         rel="noreferrer noopener"
         target="_blank"
@@ -72,8 +73,8 @@ export const Link = ({ href, children, variant, css }: LinkProps) => {
   }
 
   return (
-    <NextLink href={href} passHref>
-      <LinkBase variant={variant} css={{ ...css }}>
+    <NextLink {...props} href={href} passHref>
+      <LinkBase {...props} variant={variant} css={{ ...css }}>
         {children}
       </LinkBase>
     </NextLink>
