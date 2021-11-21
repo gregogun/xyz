@@ -9,6 +9,8 @@ import { srOnly } from '@/styles/srOnly';
 
 interface ContainerProps extends Meta {
   children: React.ReactNode;
+  clicked?: any;
+  toggleClicked?: any;
 }
 
 const skipNav = css({
@@ -35,7 +37,11 @@ const Header = styled('header');
 const Main = styled('main');
 const Footer = styled('footer');
 
-export const Container = ({ children }: ContainerProps) => {
+export const Container = ({
+  clicked,
+  toggleClicked,
+  children,
+}: ContainerProps) => {
   return (
     <Box
       css={{
@@ -68,7 +74,7 @@ export const Container = ({ children }: ContainerProps) => {
         }}
       >
         <Header>
-          <Navbar />
+          <Navbar clicked={clicked} toggleClicked={toggleClicked} />
         </Header>
         <SkipNavContent className={srOnly()} />
         <Main>{children}</Main>

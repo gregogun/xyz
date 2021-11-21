@@ -54,12 +54,14 @@ interface LinkProps {
   children: React.ReactNode | string;
   css?: CSS;
   variant?: 'default' | 'button' | 'ghost';
+  onClick?: any;
 }
 
 export const Link = ({ href, children, variant, css, ...props }: LinkProps) => {
   if (href.includes('https')) {
     return (
       <LinkBase
+        onClick={props.onClick}
         {...props}
         href={href}
         rel="noreferrer noopener"

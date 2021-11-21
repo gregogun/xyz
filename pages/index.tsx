@@ -1,13 +1,11 @@
-import { Container } from '@/components/Container';
 import { Heading } from '@/components/Heading';
 import { Image } from '@/components/Image';
 import { box, Box, center, flex, Flex } from '@/components/Layout';
+import { MobileMenu } from '@/components/MobileNav';
 import Socials from '@/components/Socials';
 import { Text, text } from '@/components/Text';
-import { mauve, violet } from '@radix-ui/colors';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { NextPage } from 'next';
-import { css, styled } from 'stitches.config';
 
 const ProfileImage = () => {
   return (
@@ -206,8 +204,13 @@ const InfoCard = () => {
   );
 };
 
-const Home: NextPage = () => {
-  return <InfoCard />;
+const Home: NextPage = ({ clicked, toggleClicked }: any) => {
+  return (
+    <>
+      <MobileMenu clicked={clicked} toggleClicked={toggleClicked} />
+      <InfoCard />
+    </>
+  );
 };
 
 export default Home;

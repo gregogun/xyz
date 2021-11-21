@@ -1,6 +1,6 @@
 import { resets } from '@/styles/resets/button';
 import { mauve } from '@radix-ui/colors';
-import { css, styled } from 'stitches.config';
+import { CSS, css, styled } from 'stitches.config';
 
 const iconButton = css({
   //   ...resets,
@@ -45,6 +45,21 @@ const IconButtonBase = styled('button', {
   ...iconButton,
 });
 
-export const IconButton = ({ children, ...props }: any) => {
-  return <IconButtonBase {...props}>{children}</IconButtonBase>;
+interface IconButtonProps {
+  children: React.ReactNode;
+  css?: CSS;
+  onClick?: () => void;
+}
+
+export const IconButton = ({
+  children,
+  onClick,
+  css,
+  ...props
+}: IconButtonProps) => {
+  return (
+    <IconButtonBase onClick={onClick} css={{ ...css }} {...props}>
+      {children}
+    </IconButtonBase>
+  );
 };
