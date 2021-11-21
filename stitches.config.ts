@@ -154,7 +154,7 @@ export const {
     bp1: '(min-width: 280px)',
     bp2: '(min-width: 768px)',
     bp3: '(min-width: 992px)',
-    bp4: '(min-width: 1024px)',
+    bp4: '(min-width: 1280px)',
     bp5: '(min-width: 1440px)',
   },
   utils: {

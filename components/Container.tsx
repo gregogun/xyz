@@ -42,7 +42,16 @@ export const Container = ({ children }: ContainerProps) => {
         '@bp1': {
           p: '$3',
         },
+        '@bp2': {
+          p: '$6',
+        },
+        '@bp3': {
+          p: '$8',
+        },
         '@bp4': {
+          pt: '$16',
+        },
+        '@bp5': {
           pt: '$32',
         },
         backgroundColor: '$AppBg',
