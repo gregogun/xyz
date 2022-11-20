@@ -1,19 +1,20 @@
-import { css, styled } from 'stitches.config';
-import { Box, Grid } from './Layout';
-import { Navbar } from './Navbar';
+import { styled } from 'stitches.config';
 import { Meta, Seo } from './Seo';
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav';
-import { Link } from './Link';
-import { Text } from './Text';
-import { srOnly } from '@/styles/srOnly';
 
-interface ContainerProps extends Meta {
-  children: React.ReactNode;
-  clicked?: any;
-  toggleClicked?: any;
-}
+const StyledContainer = styled('div', {
+  mt: 80,
+  mx: 'auto',
+  px: '$5',
+  maxWidth: 600,
 
-const skipNav = css({
+  '@md': {
+    mt: 128,
+    px: 0,
+  },
+});
+
+const StyledSkipNav = styled(SkipNavLink, {
   '&[data-reach-skip-link]': {
     position: 'absolute',
     top: '$10 ',
@@ -33,58 +34,16 @@ const skipNav = css({
   },
 });
 
-const Header = styled('header');
-const Main = styled('main');
-const Footer = styled('footer');
+interface ContainerProps extends Meta {
+  children: React.ReactNode;
+}
 
-export const Container = ({
-  clicked,
-  toggleClicked,
-  children,
-}: ContainerProps) => {
+export const Container = ({ children }: ContainerProps) => {
   return (
-    <Box
-      css={{
-        '@bp1': {
-          p: '$3',
-        },
-        '@bp2': {
-          p: '$6',
-        },
-        '@bp3': {
-          p: '$8',
-        },
-        '@bp4': {
-          pt: '$16',
-        },
-        '@bp5': {
-          pt: '$32',
-        },
-        backgroundColor: '$AppBg',
-      }}
-    >
+    <StyledContainer>
       <Seo />
-      <SkipNavLink className={skipNav()} />
-      <Grid
-        css={{
-          maxWidth: '962px',
-          margin: 'auto',
-          gridTemplateRows: 'auto 1fr auto',
-          height: '100%',
-        }}
-      >
-        <Header>
-          <Navbar clicked={clicked} toggleClicked={toggleClicked} />
-        </Header>
-        <SkipNavContent className={srOnly()} />
-        <Main>{children}</Main>
-        <Footer css={{ p: '$8' }}>
-          <Text css={{ textAlign: 'center' }}>
-            Built with ♥ and <Link href="https://nextjs.org">Next.js </Link>©
-            2021 Greg Ogun.
-          </Text>
-        </Footer>
-      </Grid>
-    </Box>
+      <StyledSkipNav />
+      {children}
+    </StyledContainer>
   );
 };

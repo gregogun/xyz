@@ -1,6 +1,5 @@
 import NextLink from 'next/link';
 import { CSS, styled } from 'stitches.config';
-import { mauve, violet } from '@radix-ui/colors';
 
 const LinkBase = styled('a', {
   margin: 0,

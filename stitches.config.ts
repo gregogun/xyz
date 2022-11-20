@@ -1,6 +1,6 @@
 import { createStitches, PropertyValue, ScaleValue } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
-import { mauve, mauveDark, violet, violetDark } from '@radix-ui/colors';
+import { slate, slateDark } from '@radix-ui/colors';
 
 const spaceTokens = {
   0: '0px',
@@ -41,16 +41,14 @@ const spaceTokens = {
 
 const darkModeConfig = {
   colors: {
-    ...mauveDark,
-    ...violetDark,
+    ...slateDark,
 
-    AppBg: mauveDark.mauve1,
-    loContrast: mauveDark.mauve11,
-    hiContrast: mauveDark.mauve12,
-    muted: mauveDark.mauve9,
-    elementBg: mauveDark.mauve3,
-    elementBorder: mauveDark.mauve7,
-    link: violetDark.violet10,
+    app: slateDark.slate1,
+    loContrast: slateDark.slate11,
+    hiContrast: slateDark.slate12,
+    muted: slateDark.slate9,
+    elementBg: slateDark.slate3,
+    elementBorder: slateDark.slate7,
   },
 };
 
@@ -65,16 +63,14 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      ...mauve,
-      ...violet,
+      ...slate,
 
-      AppBg: mauve.mauve1,
-      loContrast: mauve.mauve11,
-      hiContrast: mauve.mauve12,
-      muted: mauve.mauve9,
-      elementBg: mauve.mauve3,
-      elementBorder: mauve.mauve7,
-      link: violet.violet10,
+      AppBg: slate.slate1,
+      loContrast: slate.slate11,
+      hiContrast: slate.slate12,
+      muted: slate.slate9,
+      elementBg: slate.slate3,
+      elementBorder: slate.slate7,
     },
     space: {
       ...spaceTokens,
@@ -110,8 +106,8 @@ export const {
       '9xl': '8rem',
     },
     fonts: {
-      heading: 'Inter, sans-serif',
-      body: 'Manrope, sans-serif',
+      heading: 'Lora, serif',
+      body: 'Lora, serif',
     },
     fontWeights: {
       regular: 400,
@@ -165,77 +161,108 @@ export const {
   },
   media: {
     dark: '(prefers-color-scheme: dark)',
-    bp1: '(min-width: 280px)',
-    bp2: '(min-width: 768px)',
-    bp3: '(min-width: 992px)',
-    bp4: '(min-width: 1280px)',
-    bp5: '(min-width: 1440px)',
+    sm: '(min-width: 500px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 992px)',
+    xl: '(min-width: 1280px)',
+    '2xl': '(min-width: 1440px)',
   },
   utils: {
-    p: (value: ScaleValue<'space'>) => ({
+    p: (value: PropertyValue<'padding'>) => ({
       paddingTop: value,
       paddingBottom: value,
       paddingLeft: value,
       paddingRight: value,
     }),
-    pt: (value: ScaleValue<'space'>) => ({
+    pt: (value: PropertyValue<'paddingTop'>) => ({
       paddingTop: value,
     }),
-    pr: (value: ScaleValue<'space'>) => ({
+    pr: (value: PropertyValue<'paddingRight'>) => ({
       paddingRight: value,
     }),
-    pb: (value: ScaleValue<'space'>) => ({
+    pb: (value: PropertyValue<'paddingBottom'>) => ({
       paddingBottom: value,
     }),
-    pl: (value: ScaleValue<'space'>) => ({
+    pl: (value: PropertyValue<'paddingLeft'>) => ({
       paddingLeft: value,
     }),
-    px: (value: ScaleValue<'space'>) => ({
+    px: (value: PropertyValue<'paddingLeft'>) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    py: (value: ScaleValue<'space'>) => ({
+    py: (value: PropertyValue<'paddingTop'>) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
-    m: (value: ScaleValue<'space'>) => ({
+
+    m: (value: PropertyValue<'margin'>) => ({
       marginTop: value,
       marginBottom: value,
       marginLeft: value,
       marginRight: value,
     }),
-    mt: (value: ScaleValue<'space'>) => ({
+    mt: (value: PropertyValue<'marginTop'>) => ({
       marginTop: value,
     }),
-    mr: (value: ScaleValue<'space'>) => ({
+    mr: (value: PropertyValue<'marginRight'>) => ({
       marginRight: value,
     }),
-    mb: (value: ScaleValue<'space'>) => ({
+    mb: (value: PropertyValue<'marginBottom'>) => ({
       marginBottom: value,
     }),
-    ml: (value: ScaleValue<'space'>) => ({
+    ml: (value: PropertyValue<'marginLeft'>) => ({
       marginLeft: value,
     }),
-    mx: (value: ScaleValue<'space'>) => ({
+    mx: (value: PropertyValue<'marginLeft'>) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    my: (value: ScaleValue<'space'>) => ({
+    my: (value: PropertyValue<'marginTop'>) => ({
       marginTop: value,
       marginBottom: value,
-    }),
-    w: (value: ScaleValue<'sizes'>) => ({
-      width: value,
-    }),
-    h: (value: ScaleValue<'sizes'>) => ({
-      height: value,
-    }),
-    boxSize: (value: ScaleValue<'sizes'>) => ({
-      width: value,
-      height: value,
     }),
     bg: (value: PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value,
+    }),
+    br: (value: PropertyValue<'borderRadius'>) => ({
+      borderRadius: value,
+    }),
+    btrr: (value: ScaleValue<'radii'>) => ({
+      borderTopRightRadius: value,
+    }),
+    bbrr: (value: ScaleValue<'radii'>) => ({
+      borderBottomRightRadius: value,
+    }),
+    bblr: (value: ScaleValue<'radii'>) => ({
+      borderBottomLeftRadius: value,
+    }),
+    btlr: (value: ScaleValue<'radii'>) => ({
+      borderTopLeftRadius: value,
+    }),
+    ox: (value: PropertyValue<'overflowX'>) => ({ overflowX: value }),
+    oy: (value: PropertyValue<'overflowY'>) => ({ overflowY: value }),
+
+    w: (value: PropertyValue<'width'>) => ({ width: value }),
+    h: (value: PropertyValue<'height'>) => ({ height: value }),
+    maxW: (value: PropertyValue<'maxWidth'>) => ({ maxWidth: value }),
+    maxH: (value: PropertyValue<'maxHeight'>) => ({ maxHeight: value }),
+
+    size: (value: PropertyValue<'width'>) => ({
+      width: value,
+      height: value,
+    }),
+
+    userSelect: (value: PropertyValue<'userSelect'>) => ({
+      WebkitUserSelect: value,
+      userSelect: value,
+    }),
+    appearance: (value: PropertyValue<'appearance'>) => ({
+      WebkitAppearance: value,
+      appearance: value,
+    }),
+    backgroundClip: (value: PropertyValue<'backgroundClip'>) => ({
+      WebkitBackgroundClip: value,
+      backgroundClip: value,
     }),
   },
 });

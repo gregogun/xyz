@@ -1,215 +1,74 @@
-import { Heading } from '@/components/Heading';
-import { Image } from '@/components/Image';
-import { box, Box, center, flex, Flex } from '@/components/Layout';
-import { MobileMenu } from '@/components/MobileNav';
-import Socials from '@/components/Socials';
-import { Text, text } from '@/components/Text';
-import { motion } from 'framer-motion';
+import { Box } from '@/components/Box';
+import { Container } from '@/components/Container';
+import { Flex } from '@/components/Flex';
+import { Typography } from '@/components/Typography';
 import type { NextPage } from 'next';
 
-const ProfileImage = () => {
+const Home: NextPage = () => {
   return (
-    <motion.div
-      className={center({
-        css: {
-          '@bp1': {
-            display: 'inline-block',
-            margin: '0 auto',
-          },
-          '@bp2': {
-            display: 'block',
-            margin: 'auto',
-          },
-          p: '$2',
-          boxShadow: '0 0 0 1px $colors$violet3',
-          borderRadius: '$full',
-        },
-      })}
-      variants={containerChild}
-    >
+    <Container>
+      <Flex direction="column" gap="1">
+        <Typography
+          css={{
+            display: 'inline-flex',
+            gap: '$1',
+          }}
+          size="h4"
+        >
+          Greg Ogun
+          <Box css={{ fontSize: 15, color: '$slate11' }} as="span">
+            (he/him)
+          </Box>
+        </Typography>
+        <Typography
+          css={{ color: '$slate10', fontStyle: 'italic' }}
+          size="subheading"
+        >
+          Design-focused engineer inspired by the art of building quality
+          software.
+        </Typography>
+      </Flex>
       <Box
-        className={center({
-          css: {
-            '@bp1': {
-              display: 'inline-block',
-            },
-            '@bp2': {
-              display: 'block',
-            },
-            p: '$2',
-            boxShadow: '0 0 0 1px $colors$violet6',
-            borderRadius: '$full',
-          },
-        })}
-      >
-        <Box
-          className={center({
-            css: {
-              '@bp1': {
-                display: 'inline-block',
-              },
-              '@bp2': {
-                display: 'block',
-              },
-              boxShadow: '0 0 0 1px $colors$violet7',
-              borderRadius: '$full',
-            },
-          })}
-        >
-          <Image
-            radius="$full"
-            src="/static/images/me.png"
-            alt="Greg Ogun"
-            css={{
-              '@bp1': {
-                width: 96,
-                height: 96,
-              },
-              '@bp2': {
-                width: 144,
-                height: 144,
-              },
-              '@bp3': {
-                width: 200,
-                height: 200,
-              },
-              position: 'relative',
-            }}
-          />
-        </Box>
-      </Box>
-    </motion.div>
-  );
-};
-
-const aboutContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delay: 0.1,
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-      duration: 0.5,
-    },
-  },
-};
-
-const containerDirectChild = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      duration: 1,
-    },
-  },
-};
-
-const containerChild = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
-
-const InfoCard = () => {
-  return (
-    <motion.div
-      key="infoCard"
-      initial="hidden"
-      animate="show"
-      variants={aboutContainer}
-      exit="exit"
-      transition={{ type: 'linear' }}
-      className={box({
-        css: {
-          '@bp1': {
-            px: '$6',
-          },
-          '@bp2': {
-            py: '$10',
-            px: '$16',
-            maxWidth: '$2xl',
-            boxShadow: '0 0 0 1px var(--colors-elementBorder)',
-          },
-          '@bp3': {
-            maxWidth: '$5xl',
-          },
-          borderRadius: '$md',
-
-          margin: 'auto',
-        },
-      })}
-    >
-      <motion.div
-        variants={containerDirectChild}
-        className={flex({
-          css: {
-            '@bp1': {
-              flexDirection: 'column-reverse',
-              gap: '$8',
-            },
-            '@bp2': {
-              flexDirection: 'row',
-            },
-            justifyContent: 'space-between',
-          },
-        })}
-      >
-        <motion.div
-          className={flex({
-            css: {
-              flexDirection: 'column',
-              justifyContent: 'center',
-            },
-          })}
-          variants={containerChild}
-        >
-          <Flex
-            css={{
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '95%',
-            }}
+        css={{
+          my: '$3',
+          height: 1,
+          background:
+            'linear-gradient(to right, rgba(49, 53, 56, 100), rgba(49, 53, 56, 0))',
+        }}
+      />
+      <Flex direction="column" gap="5" css={{ mt: '$8' }}>
+        <Typography color="loContrast" size="subheading">
+          Crafting highly composable, accessible react components with{' '}
+          <Box
+            href="https://github.com/aura-ui/aura-ui"
+            css={{ color: '$slate12' }}
+            as="a"
+            rel="noreferrer"
+            target="_blank"
           >
-            <Heading css={{ mb: '$4' }}>Greg Ogun</Heading>
-            <Text
-              css={{
-                color: '$loContrast',
-                bg: '$elementBg',
-                px: '$1',
-                borderRadius: '$sm',
-              }}
-            >
-              he/him
-            </Text>
-          </Flex>
-          <h2
-            className={text({
-              css: {
-                '@bp2': {
-                  maxWidth: '$md',
-                },
-                mb: '$12',
-              },
-            })}
+            Aura UI.
+          </Box>
+          <br /> Helping to shape the future of storytelling at{' '}
+          <Box
+            href="https://www.sigle.io/"
+            css={{ color: '$slate12' }}
+            as="a"
+            rel="noreferrer"
+            target="_blank"
           >
-            developer, designer, content creator, and occasional writer, amongst
-            other things.
-          </h2>
-          <Socials />
-        </motion.div>
-        <ProfileImage />
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const Home: NextPage = ({ clicked, toggleClicked }: any) => {
-  return (
-    <>
-      <MobileMenu clicked={clicked} toggleClicked={toggleClicked} />
-      <InfoCard />
-    </>
+            Sigle
+          </Box>
+          .{' '}
+        </Typography>
+        <Typography color="loContrast" size="subheading">
+          Outside the world of software, you’ll likely find me writing music of
+          various moods, or tinkering somewhere in the realm of the visual arts.
+        </Typography>
+        <Typography css={{ mt: '$5' }} color="loContrast" size="subheading">
+          More soon.
+        </Typography>
+      </Flex>
+    </Container>
   );
 };
 
