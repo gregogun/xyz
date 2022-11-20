@@ -4,8 +4,22 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import { useRef, useState } from 'react';
 import { CSS, styled } from 'stitches.config';
-import { list } from './Layout';
 import { Link } from './Link';
+
+const StyledMotionList = styled(motion.ul, {
+  listStyleType: 'none',
+  padding: 0,
+  margin: 0,
+
+  '@bp1': {
+    display: 'none',
+  },
+  '@bp2': {
+    display: 'block',
+  },
+  gap: '$2',
+  position: 'relative',
+});
 
 interface TabItemProps {
   children: string;
@@ -115,22 +129,7 @@ export const Tabs = ({
   }
 
   return (
-    <motion.ul
-      variants={motions.basic}
-      className={list({
-        css: {
-          '@bp1': {
-            display: 'none',
-          },
-          '@bp2': {
-            display: 'block',
-          },
-          gap: '$2',
-          position: 'relative',
-          ...css,
-        },
-      })}
-    >
+    <StyledMotionList variants={motions.basic}>
       <TabsNav
         css={{
           flexDirection:
@@ -170,6 +169,6 @@ export const Tabs = ({
           </TabItem>
         ))}
       </TabsNav>
-    </motion.ul>
+    </StyledMotionList>
   );
 };

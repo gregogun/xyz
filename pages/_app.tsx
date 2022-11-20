@@ -3,8 +3,9 @@ import { darkTheme } from '../stitches.config';
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 import React from 'react';
-import { Container } from '@/components/Container';
 import useToggle from '@/utils/hooks/useToggle';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/400-italic.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [clicked, toggleClicked] = useToggle();
@@ -15,13 +16,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       defaultTheme="system"
       value={{ light: 'light-theme', dark: darkTheme.toString() }}
     >
-      <Container clicked={clicked} toggleClicked={toggleClicked}>
-        <Component
-          {...pageProps}
-          clicked={clicked}
-          toggleClicked={toggleClicked}
-        />
-      </Container>
+      <Component
+        {...pageProps}
+        clicked={clicked}
+        toggleClicked={toggleClicked}
+      />
     </ThemeProvider>
   );
 }
