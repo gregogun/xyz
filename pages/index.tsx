@@ -60,7 +60,7 @@ const Home: NextPage = () => {
           </Box>
           .{' '}
         </Typography>
-        <Typography color="loContrast" size="subheading">
+        <Typography css={{ maxW: '60ch' }} color="loContrast" size="subheading">
           Outside the world of software, you’ll likely find me writing music of
           various moods, or tinkering somewhere in the realm of the visual arts.
         </Typography>
